@@ -15,6 +15,10 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 
 <?	
 }else{  /// We have a valid Producteev Session
+
+
+
+
 ?>	
 	
                 <article>
@@ -40,11 +44,65 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
   <label class="control-label" for="project">Select Client and Project</label>
   <div class="controls">
     <select id="project" name="project" class="input-xlarge">
-      <option>Option one</option>
-      <option>Option two</option>
+    <?
+/// need to call multiple times because only 50 at a time are returned
+
+for($j=1;$j<6;$j++){
+
+$projects=makeAPICall("https://www.producteev.com/api/networks/".$producteevNetworkID."/projects?page=$j");
+$projectsObj=json_decode($projects['content']);
+//print_r($projectsObj);
+
+
+    $projectsArray=$projectsObj->projects;
+    for($i=0;$i<count($projectsArray);$i++){
+	    
+	    ?>
+	  <option value="<?=$projectsArray[$i]->id?>"><?=$projectsArray[$i]->title?></option>  
+	    <?
+	    
+    }
+
+}    
+    ?>
+    
     </select>
   </div>
 </div>
+
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="label">Select Label</label>
+  <div class="controls">
+    <select id="label" name="label" class="input-xlarge">
+    <?
+/// need to call multiple times because only 50 at a time are returned
+
+for($j=1;$j<12;$j++){
+
+$labels=makeAPICall("https://www.producteev.com/api/networks/".$producteevNetworkID."/labels?page=$j");
+$labelsObj=json_decode($labels['content']);
+//print_r($labelsObj);
+
+
+    $labelsArray=$labelsObj->labels;
+    for($i=0;$i<count($labelsArray);$i++){
+	    
+	    ?>
+	  <option value="<?=$labelsArray[$i]->id?>"><?=$labelsArray[$i]->title?></option>  
+	    <?
+	    
+    }
+
+}    
+    ?>
+    
+    </select>
+  </div>
+</div>
+
+
 
 <!-- Text input-->
 <div class="control-group">

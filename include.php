@@ -1,6 +1,10 @@
 <?php 
-function get_web_page( $url )
+
+$producteevNetworkID="519b6a70bcd3e02c6d000004";
+
+function makeAPICall( $url )
 {
+
     $options = array(
         CURLOPT_RETURNTRANSFER => true,     // return web page
         CURLOPT_HEADER         => false,    // don't return headers
@@ -11,6 +15,7 @@ function get_web_page( $url )
         CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
         CURLOPT_TIMEOUT        => 120,      // timeout on response
         CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+        CURLOPT_HTTPHEADER      => array("Authorization:Bearer ".$_SESSION['producteev_access_token']),   
         CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
     );
 
@@ -27,6 +32,8 @@ function get_web_page( $url )
     $header['content'] = $content;
     return $header;
 }
+
+
 
 
 ?>
