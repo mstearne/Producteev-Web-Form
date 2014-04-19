@@ -1,6 +1,5 @@
 <?
-include_once("include.php");
-
+include_once("header.php");
 
 //first page of the auth process:
 //https://www.producteev.com/oauth/v2/auth?client_id=53518db120bce50455000004_1gphpxybebesgc04s8sw4s8kwooocsw80ocwc04kwkco0wsw4w&response_type=code&redirect_uri=http%3A%2F%2Fwww.pathinteractive.com%2Finternal%2Fproducteev%2Fauth.php
@@ -19,17 +18,16 @@ $authFinal=get_web_page("https://www.producteev.com/oauth/v2/token?client_id=535
 
 $authData=json_decode($authFinal['content']);
 
-//print_r($authData);
-
 $_SESSION['producteev_access_token']=$authData->access_token;
 $_SESSION['producteev_expires_in']=$authData->expires_in;
 $_SESSION['producteev_refresh_token']=$authData->refresh_token;
 
 ?>
-<div align="center"><h1>Thanks. Redirecting...</h1></div>
+<div align="center"><h3>Thanks. Redirecting...</h3></div>
 <meta http-equiv="refresh" content="2; url=index.php">
 
 <?
 }
+include_once("footer.php");
 
 ?>
