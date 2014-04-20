@@ -2,7 +2,7 @@
 
 $producteevNetworkID="519b6a70bcd3e02c6d000004";
 
-function makeAPICall( $url )
+function makeAPICall( $url, $postFields="",$deleteOption="" )
 {
 
     $options = array(
@@ -18,7 +18,15 @@ function makeAPICall( $url )
         CURLOPT_HTTPHEADER      => array("Authorization:Bearer ".$_SESSION['producteev_access_token']),   
         CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
     );
+//    print_r($postFields);
+    if($postFields){
+      $options[CURLOPT_POSTFIELDS] = $postFields;
+    }
+    if($deleteOption){
+      $options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
+    }
 
+//print_r($options);
     $ch      = curl_init( $url );
     curl_setopt_array( $ch, $options );
     $content = curl_exec( $ch );

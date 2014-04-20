@@ -43,9 +43,9 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 
 <!-- Select Basic -->
 <div class="control-group">
-  <label class="control-label" for="label">Select Label</label>
+  <label class="control-label" for="label">Move items with this label:</label>
   <div class="controls">
-    <select id="label" name="label" class="input-xlarge">
+    <select id="labels" name="labels" class="input-xlarge">
     <?
 /// need to call multiple times because only 50 at a time are returned
 
@@ -59,12 +59,12 @@ $labelsObj=json_decode($labels['content']);
     $labelsArray=$labelsObj->labels;
     for($i=0;$i<count($labelsArray);$i++){
 	    
-	    if(substr($labelsArray[$i]->id, 0,3)=="519"){
+//	    if(substr($labelsArray[$i]->id, 0,3)=="519"){
 	    ?>
 	    
 	  <option value="<?=$labelsArray[$i]->id?>"><?=$labelsArray[$i]->title?></option>  
 	    <?
-	    }
+//	    }
     }
 
 }    
@@ -76,9 +76,9 @@ $labelsObj=json_decode($labels['content']);
 
 <!-- Select Basic -->
 <div class="control-group">
-  <label class="control-label" for="project">Select Project</label>
+  <label class="control-label" for="project">to this project:</label>
   <div class="controls">
-    <select id="project" name="project" class="input-xlarge">
+    <select id="projects" name="projects" class="input-xlarge">
     <?
 /// need to call multiple times because only 50 at a time are returned
 
@@ -122,8 +122,27 @@ $projectsObj=json_decode($projects['content']);
                         </p>
                     </section>
 
+                    <section>
+
+<div id="taskList">
 
 
+</div>
+
+                    </section>
+<script>
+
+$("#labels").change(function() {
+
+  $.ajax({ url: "getTasksFromLabel.php?labelid="+$("#labels").val(), context: document.body, success: function(data){
+  $("#taskList").html("<h3>These tasks will be updated:</h3> "+data);
+  }});
+});
+
+
+
+</script>	
+	
 
 	
 	
