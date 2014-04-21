@@ -43,15 +43,9 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 
 <!-- Select Basic -->
 <div class="control-group">
-<<<<<<< HEAD
-  <label class="control-label" for="label">Select Label</label>
-  <div class="controls">
-    <select id="label" name="label" class="input-xlarge">
-=======
   <label class="control-label" for="label">Move items with this label:</label>
   <div class="controls">
     <select id="labels" name="labels" class="input-xlarge">
->>>>>>> FETCH_HEAD
     <?
 /// need to call multiple times because only 50 at a time are returned
 
@@ -65,20 +59,12 @@ $labelsObj=json_decode($labels['content']);
     $labelsArray=$labelsObj->labels;
     for($i=0;$i<count($labelsArray);$i++){
 	    
-<<<<<<< HEAD
-	    if(substr($labelsArray[$i]->id, 0,3)=="519"){
-=======
 //	    if(substr($labelsArray[$i]->id, 0,3)=="519"){
->>>>>>> FETCH_HEAD
 	    ?>
 	    
 	  <option value="<?=$labelsArray[$i]->id?>"><?=$labelsArray[$i]->title?></option>  
 	    <?
-<<<<<<< HEAD
-	    }
-=======
 //	    }
->>>>>>> FETCH_HEAD
     }
 
 }    
@@ -90,15 +76,9 @@ $labelsObj=json_decode($labels['content']);
 
 <!-- Select Basic -->
 <div class="control-group">
-<<<<<<< HEAD
-  <label class="control-label" for="project">Select Project</label>
-  <div class="controls">
-    <select id="project" name="project" class="input-xlarge">
-=======
   <label class="control-label" for="project">to this project:</label>
   <div class="controls">
     <select id="projects" name="projects" class="input-xlarge">
->>>>>>> FETCH_HEAD
     <?
 /// need to call multiple times because only 50 at a time are returned
 
@@ -142,11 +122,6 @@ $projectsObj=json_decode($projects['content']);
                         </p>
                     </section>
 
-<<<<<<< HEAD
-
-
-	
-=======
                     <section>
 
 <div id="taskList">
@@ -169,7 +144,6 @@ $("#labels").change(function() {
 </script>	
 	
 
->>>>>>> FETCH_HEAD
 	
 	
 <?	
