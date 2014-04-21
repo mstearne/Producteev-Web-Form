@@ -39,9 +39,10 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 <!-- Form Name -->
 <legend>Create Task</legend>
 
+
 <!-- Select Basic -->
 <div class="control-group">
-  <label class="control-label" for="project">Select Client and Project</label>
+  <label class="control-label" for="project">Select Client</label>
   <div class="controls">
     <select id="project" name="project" class="input-xlarge">
     <?
@@ -90,9 +91,9 @@ $labelsObj=json_decode($labels['content']);
     for($i=0;$i<count($labelsArray);$i++){
 	    
 	    ?>
+	    
 	  <option value="<?=$labelsArray[$i]->id?>"><?=$labelsArray[$i]->title?></option>  
 	    <?
-	    
     }
 
 }    

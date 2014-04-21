@@ -18,6 +18,9 @@ include_once("include.php");
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -26,10 +29,11 @@ include_once("include.php");
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h2 class="title">Order New Development & Creative Task</h2>
+                <h2 class="title">Path Producteev Interface</h2>
                 <nav>
                     <ul>
                         <li><a href="http://www.pathinteractive.com/" target="_blank">Path, Inc.</a></li>
+                        <li><a href="updateLabels.php">Update Labels</a></li>
 <!--
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>
