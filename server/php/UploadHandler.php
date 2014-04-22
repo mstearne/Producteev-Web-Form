@@ -147,6 +147,7 @@ class UploadHandler
                 )
             )
         );
+        
         if ($options) {
             $this->options = $options + $this->options;
         }
@@ -156,6 +157,8 @@ class UploadHandler
         if ($initialize) {
             $this->initialize();
         }
+
+
     }
 
     protected function initialize() {
