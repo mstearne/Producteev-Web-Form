@@ -2,7 +2,7 @@
 
 $producteevNetworkID="519b6a70bcd3e02c6d000004";
 
-function makeAPICall( $url, $postFields="",$deleteOption="" )
+function makeAPICall( $url, $postFields="",$optionsIn="POST" )
 {
 
     $options = array(
@@ -19,10 +19,15 @@ function makeAPICall( $url, $postFields="",$deleteOption="" )
         CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
     );
 //    print_r($postFields);
-    if($postFields){
+    if($optionsIn=="POST"&&$postFields){
       $options[CURLOPT_POSTFIELDS] = $postFields;
     }
-    if($deleteOption){
+    if($optionsIn=="PUT"&&$postFields){
+      $options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+      $options[CURLOPT_POSTFIELDS] = $postFields;
+    }
+
+    if($optionsIn=="DELETE"){
       $options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
     }
 

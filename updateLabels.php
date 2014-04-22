@@ -107,16 +107,17 @@ $projectsObj=json_decode($projects['content']);
 
 
 <!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="submittask"></label>
-  <div class="controls">
-    <button id="submittask" name="submittask" class="btn btn-primary">Update Tasks</button>
-  </div>
-</div>
+</form>
 
 
 </fieldset>
-</form>
+<div class="control-group">
+  <label class="control-label" for="submittask"></label>
+  <div class="controls">
+    <button id="deleteButton" name="deleteButton" class="btn btn-primary">Move Labels to Projects</button>
+  </div>
+
+</div>
 
 	                        
                         </p>
@@ -139,11 +140,17 @@ $("#labels").change(function() {
   }});
 });
 
+$("#deleteButton").click(function() {
+
+  $.ajax({ url: "migrateTaskLabelToProject.php?labelid="+$("#labels").val()+"&projectid="+$("#projects").val(), context: document.body, success: function(data){
+  $("#taskList").html("<h3>The label on these tasks will be DELETED and the project MOVED:</h3> "+data);
+  }});
+});
+
 
 
 </script>	
 	
-
 	
 	
 <?	
