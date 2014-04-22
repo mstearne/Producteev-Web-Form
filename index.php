@@ -72,44 +72,13 @@ $projectsObj=json_decode($projects['content']);
 </div>
 
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="label">Select Label</label>
-  <div class="controls">
-    <select id="label" name="label" class="input-xlarge">
-    <?
-/// need to call multiple times because only 50 at a time are returned
-
-for($j=1;$j<12;$j++){
-
-$labels=makeAPICall("https://www.producteev.com/api/networks/".$producteevNetworkID."/labels?page=$j");
-$labelsObj=json_decode($labels['content']);
-//print_r($labelsObj);
-
-
-    $labelsArray=$labelsObj->labels;
-    for($i=0;$i<count($labelsArray);$i++){
-	    
-	    ?>
-	    
-	  <option value="<?=$labelsArray[$i]->id?>"><?=$labelsArray[$i]->title?></option>  
-	    <?
-    }
-
-}    
-    ?>
-    
-    </select>
-  </div>
-</div>
-
 
 
 <!-- Text input-->
 <div class="control-group">
   <label class="control-label" for="taskname">Task Name</label>
   <div class="controls">
-    <input id="taskname" name="taskname" type="text" placeholder="" class="input-xlarge" required="">
+    <input id="taskname" name="taskname" type="text" placeholder="" class="input-xlarge" required="required" style="width:600px">
     
   </div>
 </div>
@@ -118,7 +87,7 @@ $labelsObj=json_decode($labels['content']);
 <div class="control-group">
   <label class="control-label" for="description">Task Description</label>
   <div class="controls">                     
-    <textarea id="description" name="description" required=""></textarea>
+    <textarea id="description" name="description" required="" class="field span12" cols="100" rows="8"></textarea>
   </div>
 </div>
 

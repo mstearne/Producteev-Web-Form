@@ -80,6 +80,7 @@ $updateTask=makeAPICall( "https://www.producteev.com/api/tasks/".$tasksToMove[$i
 $updateTask=makeAPICall("https://www.producteev.com/api/tasks/".$tasksToMove[$i]."/labels/".$_REQUEST['labelid'],"","DELETE");
 
 
+
 /*
 
 curl -v -X DELETE "https://www.producteev.com/api/tasks/51e83db1fa46341808000075/labels/51e83dd6fa46341808000399" --header "Authorization:Bearer 5Fm-kYL08PpPU3VkYzTbCNO3-Ldzk8-COtjp3_7Xmto"
@@ -89,6 +90,10 @@ curl -v -X DELETE "https://www.producteev.com/api/tasks/51e83db1fa46341808000075
 
 
 }
+
+// remove the label from the system
+// https://www.producteev.com/api/labels/51e83dd6fa46341808000399
+$removeLabelFromSystem=makeAPICall("https://www.producteev.com/api/labels/".$_REQUEST['labelid'],"","DELETE");
 
 
 
