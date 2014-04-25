@@ -9,7 +9,7 @@ include_once("include.php");
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Path Interactive Development & Creative Task Creation</title>
+        <title>Path Development & Creative Services</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,7 +32,7 @@ include_once("include.php");
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h2 class="title">Path Producteev Interface</h2>
+                <h3 class="title"><img src="img/path-logo-3.png" alt="path-logo-square" hspace="10" style="background-color:white">Development & Creative Services</h3>
                 <nav>
                     <ul>
                         <li><a href="http://www.pathinteractive.com/" target="_blank">Path, Inc.</a></li>
