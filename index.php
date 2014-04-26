@@ -113,7 +113,7 @@ $labelsObj=json_decode($labels['content']);
 <div class="control-group">
   <label class="control-label" for="taskname">Task Name</label>
   <div class="controls">
-    <input id="taskname" name="taskname" type="text" placeholder="" class="input-xlarge" required="required" style="width:600px">
+    <input id="taskname" name="taskname" type="text" placeholder="" class="input-xlarge" required="required" style="width:100%;">
     
   </div>
 </div>
@@ -122,7 +122,7 @@ $labelsObj=json_decode($labels['content']);
 <div class="control-group">
   <label class="control-label" for="description">Task Description</label>
   <div class="controls">                     
-    <textarea id="description" name="description" required="" class="field span12" cols="100" rows="8"></textarea>
+    <textarea id="description" name="description" required="" class="field span12" style="width:100%;height:100px" ></textarea>
   </div>
 </div>
 
