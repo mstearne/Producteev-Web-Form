@@ -17,22 +17,59 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 }else{  /// We have a valid Producteev Session
 
 
-$projectData=makeAPICall( "https://www.producteev.com/api/projects/".$_REQUEST['projectid']);
+$projectData=makeAPICall( "https://www.producteev.com/api/projects/".$_REQUEST['project']);
 
 //$projectData['content'];
 $projectData['content']=str_replace("\/","/",$projectData['content']);
 
-print_r($projectData['content']);
+$pData2=json_decode($projectData['content']);
+
+//print_r($pData2->project->id);
+
+//print_r($projectData['content']);
+
+$taskData='{"task":{"title":"'.addslashes($_REQUEST['taskname']).'","project":{"id":"'.$pData2->project->id.'"}}}';
+
+
+$newTaskData=makeAPICall( "https://www.producteev.com/api/tasks", $taskData);
+
+print_r($newTaskData);
+
+if($newTaskData['http_code']=="201"){
+/// task created successfully	
+	
+	$createdTaskData=json_decode($newTaskData['content']);
+
+
+/// TODO
+///  Get the new task ID
+
+
+
+//// Update the task to add the label
+
+
+//// Update the task to add the attached images
+
+
+//// update the task to add Dev Team as a follower  (or Tom King)
+	
+	
+	
+}else{
+	?>
+	
+	
+	There was a problem. Please try again.
+	
+	<?
+	
+	
+}
+
+//print_r($taskData);
+
 /*
-
-	$taskData='{ "task":["'.$producteevNetworkID.'"], "projects":[], "priorities":[], "statuses":[0], "responsibles":[],"creators":[], "labels":["'.$_REQUEST['labelid'].'"], "deadline":{}, "created_at":{}, "updated_at":{}, "search":{}}';
-
-
-
-
-
-$projectData=makeAPICall( "https://www.producteev.com/api/projects/".$_REQUEST['projectid']);
-
 //$projectData['content'];
 $projectData['content']=str_replace("\/","/",$projectData['content']);
 

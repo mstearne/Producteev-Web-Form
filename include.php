@@ -18,9 +18,10 @@ function makeAPICall( $url, $postFields="",$optionsIn="POST" )
         CURLOPT_HTTPHEADER      => array("Authorization:Bearer ".$_SESSION['producteev_access_token']),   
         CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
     );
-//    print_r($postFields);
     if($optionsIn=="POST"&&$postFields){
+      $options[CURLOPT_CUSTOMREQUEST] = 'POST';
       $options[CURLOPT_POSTFIELDS] = $postFields;
+//      print "here";
     }
     if($optionsIn=="PUT"&&$postFields){
       $options[CURLOPT_CUSTOMREQUEST] = 'PUT';

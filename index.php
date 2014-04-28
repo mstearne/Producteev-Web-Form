@@ -33,7 +33,7 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 	                        
 	                        
 
-<form class="form-horizontal" action="addTask.php">
+<form class="form-horizontal" action="addTask.php" method="post">
 <fieldset>
 
 <!-- Form Name -->
