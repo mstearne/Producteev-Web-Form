@@ -35,7 +35,7 @@ include_once("include.php");
                 <h3 class="title"><img src="img/path-logo-3.png" alt="path-logo-square" hspace="10" style="background-color:white">Development & Creative Services</h3>
                 <nav>
                     <ul>
-                        <li><a href="http://www.pathinteractive.com/" target="_blank">Path, Inc.</a></li>
+<!--                         <li><a href="http://www.pathinteractive.com/" target="_blank">Path, Inc.</a></li> -->
                         <li><a href="updateLabels.php">Update Labels</a></li>
 <!--
                         <li><a href="#">nav ul li a</a></li>
