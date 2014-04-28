@@ -33,12 +33,20 @@ $taskData='{"task":{"title":"'.addslashes($_REQUEST['taskname']).'","project":{"
 
 $newTaskData=makeAPICall( "https://www.producteev.com/api/tasks", $taskData);
 
-print_r($newTaskData);
+///print_r($newTaskData);
 
 if($newTaskData['http_code']=="201"){
 /// task created successfully	
 	
 	$createdTaskData=json_decode($newTaskData['content']);
+
+?>
+
+<h2>New Task successfully added. Check Producteev.
+
+</h2>
+
+<?
 
 
 /// TODO
@@ -104,9 +112,6 @@ $updateTask=makeAPICall( "https://www.producteev.com/api/tasks/".$tasksToMove[$i
 
 
 ?>	
-
-
-Logged in.
 
 
 
