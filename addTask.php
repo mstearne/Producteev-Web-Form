@@ -40,21 +40,61 @@ if($newTaskData['http_code']=="201"){
 	
 	$createdTaskData=json_decode($newTaskData['content']);
 
+/// TODO
+///  Get the new task ID
+//print_r($createdTaskData);
+$newTaskID=$createdTaskData->task->id;
+//print $newTaskID;
+
 ?>
 
-<h2>New Task successfully added. Check Producteev.
+<h3>New task successfully added. <a href="https://www.producteev.com/workspace/t/<?=$newTaskID?>" class="btn btn-primary">Click to view</a></h3>
 
-</h2>
+
 
 <?
 
-
-/// TODO
-///  Get the new task ID
-
+$updateTaskData='{}';
 
 
 //// Update the task to add the label
+$updateTask=makeAPICall( "https://www.producteev.com/api/tasks/$newTaskID/labels/".$_REQUEST['labelid'],$updateTaskData,"PUT");
+
+
+
+$updateTaskData='{"task":{"deadline":"'.$_REQUEST['duedate'].'T20:00:00+0000",
+      "deadline_timezone":"EST"
+      
+      
+}}';
+
+
+//// Update the task to add the label
+$updateTask=makeAPICall( "https://www.producteev.com/api/tasks/$newTaskID",$updateTaskData,"PUT");
+
+/// Update the task add the desc
+
+$newNoteData='{
+  "note":{
+    "message":"'.addslashes($_REQUEST['description']).'",
+    "task":{
+      "id":"'.$newTaskID.'"
+    }
+  }
+}';
+
+
+
+$updateTaskNotes=makeAPICall( "https://www.producteev.com/api/notes",$newNoteData,"POST");
+
+
+//api/notes?access_token=OGRlMWI1YmM5MDEyMjM3M2FkZmQ0ZjI2ZWUwYzJmYzZkOGZiMGJmMjZhZDYzMTliZDdhODY0NThkZjQ0M2UwMQ
+
+
+
+
+//print_r($updateTask);
+
 
 
 //// Update the task to add the attached images

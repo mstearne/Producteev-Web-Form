@@ -36,7 +36,8 @@ include_once("include.php");
                 <nav>
                     <ul>
 <!--                         <li><a href="http://www.pathinteractive.com/" target="_blank">Path, Inc.</a></li> -->
-                        <li><a href="updateLabels.php">Update Labels</a></li>
+<!--                         <li><a href="updateLabels.php">Update Labels</a></li> -->
+                        <li><a href="index.php">Create a Task</a></li>
 <!--
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>

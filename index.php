@@ -94,7 +94,7 @@ ob_end_flush();
 <div class="control-group">
   <label class="control-label" for="label">Select Task Type:</label>
   <div class="controls">
-    <select id="labels" name="labels" class="input-xlarge">
+    <select id="labelid" name="labelid" class="input-xlarge">
     <?
 /// need to call multiple times because only 50 at a time are returned
 
@@ -123,9 +123,24 @@ $labelsObj=json_decode($labels['content']);
 	    
 	    
 	    if(substr($labelsArray[$i]->title, 5,3)=="---"){
+	    
+	    switch (substr($labelsArray[$i]->title, 0,1)){
+		    
+		    case 1:
+		    	$prefix="SEO/Social";
+		    break;
+		    case 2:
+		    	$prefix="PPC";
+		    break;
+		    case 3:
+		    	$prefix="WEB";
+		    break;
+		    
+		    
+	    }
 	    ?>
 	    
-	  <option value="<?=$labelsArray[$i]->id?>"><?=$labelsArray[$i]->title?></option>  
+	  <option value="<?=$labelsArray[$i]->id?>"><?=$prefix?> client <?= str_replace("-", " ", substr($labelsArray[$i]->title,8,strlen($labelsArray[$i]->title)-7))?></option>  
 	    <?
 	    }
     }
@@ -162,7 +177,7 @@ ob_end_flush();
 <div class="control-group">
   <label class="control-label" for="description">Task Description</label>
   <div class="controls">                     
-    <textarea id="description" name="description" required="" class="field span12" style="width:100%;height:100px" ></textarea>
+    <textarea id="description" name="description" required="required" class="field span12" style="width:100%;height:100px" ></textarea>
   </div>
 </div>
 
@@ -177,7 +192,7 @@ ob_end_flush();
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
   
-  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+<!--   <link rel="stylesheet" type="text/css" href="/css/result-light.css"> -->
   
     
   
@@ -209,7 +224,7 @@ $(".date-picker").on("change", function () {
 
     
             <div class="input-group" style="width:225px">
-                <input id="date-picker-2" type="text" class="date-picker form-control" required="required" />
+                <input id="date-picker-2" type="text" class="date-picker form-control" name="duedate" required="required"/>
                 <label for="date-picker-2" class="input-group-addon btn"><i class="glyphicon glyphicon-calendar"></i>
 
                 </label>
