@@ -27,7 +27,7 @@ include_once("include.php");
     </head>
     <body>
         <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> 
         <![endif]-->
 
         <div class="header-container">
@@ -38,6 +38,9 @@ include_once("include.php");
 <!--                         <li><a href="http://www.pathinteractive.com/" target="_blank">Path, Inc.</a></li> -->
 <!--                         <li><a href="updateLabels.php">Update Labels</a></li> -->
                         <li><a href="index.php">Create a Task</a></li>
+                        <li><a href="/support/">Tech Support</a></li>
+
+
 <!--
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>
