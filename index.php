@@ -24,6 +24,9 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
                         <p>Fill out the form below to create a new task for the development and creative team.</p>
                     </header>
                     <section>
+
+
+
                         <p>
 
 <link rel="stylesheet" href="css/bootstrapValidator.css"/>
@@ -32,6 +35,9 @@ if(!$_SESSION['producteev_access_token']){   /// Start Producteev Session Check
 
 <form class="form-horizontal" id="create-task-form" action="addTask.php" method="post">
 <fieldset>
+
+
+
 
 <!-- Form Name -->
 <legend>Create Task</legend>
@@ -176,55 +182,43 @@ ob_end_flush();
   </div>
 </div>
 
-  
-  <style type='text/css'>
-.date-form { margin: 10px; }
-label.control-label i { cursor: pointer; }
-  </style>
-  
 
-<script src="js/moment.min.js"></script>
-<script src="js/bootstrap-datetimepicker.min.js"></script>
 
+        <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+        <script src="js/moment.min.js"></script>
+        <script src="js/bootstrap-datetimepicker.min.js"></script>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="taskname">Desired Due/Launch Date</label>  
+  <div class="col-md-8">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" name="duedate" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker(
                 {
-	                pickTime: false;
-                });
+                    pickTime: false,
+                    
+                                    });
             });
         </script>
-        
-
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" name="duedate"/>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="date-picker">Desired Completion Date</label>  
-  <div class="col-md-8" id='datetimepicker1'>
-<input type='text' class="form-control" name="duedate"/>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                    
-  <input id="date-picker" type="text" class="date-picker form-control input-md" name="duedate"/><label for="date-picker" class="input-group-addon btn"><i class="glyphicon glyphicon-calendar"></i></label>
     
   </div>
 </div>
 
+
+  
 
 
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="submittask"></label>
   <div class="col-md-4">
-    <button id="submittask" name="submittask" class="btn btn-primary">Create Task</button>
+	  <button type="submit" class="btn btn-primary">Create Task</button>
   </div>
 </div>
 
@@ -247,18 +241,6 @@ label.control-label i { cursor: pointer; }
 $(document).ready(function() {
 
 
-    $('#date-picker')
-        .datetimepicker({
-            pickTime: false
-        })
-        .on('dp.change dp.show', function(e) {
-            $('#feedbackIconForm')
-                .data('bootstrapValidator')
-                .updateStatus('dob', 'NOT_VALIDATED', null)
-                .validateField('dob');
-        });
-        
-        
 
     $('#create-task-form').bootstrapValidator({
         message: 'This value is not valid',
@@ -306,6 +288,8 @@ $(document).ready(function() {
                 }
             }
         }
+
+
     });
 }); 
 
